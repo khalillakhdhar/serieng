@@ -1,0 +1,6 @@
+<form #f="ngForm">
+Nombre à verifier:<input type="number" name="nombre" [(ngModel)]="nombre" placeholder="nombre" required>
+<button [disabled]="f.invalid" (click)="verifier()">Verifier</button>
+</form>
+<br>
+{{message}}

@@ -1,0 +1,53 @@
+
+<div class="container text-center">
+  <div class="row">
+    <div class="col">
+
+    </div>
+    <div class="col">
+      <form #userForm="ngForm">
+        <div class="mb-3">
+          <label  class="form-label">Nom</label>
+          <input type="text" class="form-control" name="nom" [(ngModel)]="utilisateur.nom" required placeholder="Nom">
+        </div>
+        <div class="mb-3">
+          <label  class="form-label">Prenom</label>
+          <input type="text" class="form-control" name="prenom" [(ngModel)]="utilisateur.prenom" required placeholder="Preom">
+        </div>
+        <div class="mb-3">
+          <label  class="form-label">Age</label>
+          <input type="number" class="form-control" name="age" [(ngModel)]="utilisateur.age" required placeholder="Age">
+        </div>
+        <div class="mb-3">
+          <button class="btn btn-primary" [disabled]="userForm.invalid" (click)="addUser()">Ajouter</button>
+        </div>
+      </form>
+    </div>
+    <div class="col">
+
+    </div>
+  </div>
+</div>
+<div *ngIf="users.length==0" class="alert alert-danger text-center">Aucun utilisateur</div>
+<div *ngIf="users.length>0">
+  <h3>Liste des utilisateurs</h3>
+<table class="table table-bordered table-responsive">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th>Age</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users; let i=index">
+      <td>{{user.nom}}</td>
+      <td>{{user.prenom}}</td>
+      <td>{{user.age}}</td>
+      <td><button class="btn btn-danger" (click)="deleteUser(i)">Supprimer</button></td>
+
+    </tr>
+  </tbody>
+</table>
+</div>
