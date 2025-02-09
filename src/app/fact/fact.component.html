@@ -1,0 +1,7 @@
+<form #f="ngForm">
+Nombre:<input type="number" name="nombre" [(ngModel)]="valeur" placeholder="nombre"  required>
+<button [disabled]="f.invalid" (click)="factoriel()">Calculer</button>
+
+
+
+</form>
